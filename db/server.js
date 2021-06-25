@@ -2,7 +2,6 @@ const { query } = require("express");
 const express = require("express");
 const app = express();
 const mysql = require('mysql');
-const { CHAR_NO_BREAK_SPACE } = require("picomatch/lib/constants");
     const con = mysql.createConnection({
         host: "localhost",
         user: "root",
@@ -69,17 +68,24 @@ app.get("/api/blogs", function(req, res){
         con.query(query, function (err, resultBlog, fields){
             resultBlog.forEach(blog => {
                 query = `SELECT * FROM comment_connect WHERE blog_id = ${blog.idBlogs}`
+                // result[blog.idBlogs] = []
                 
-                con.query(query, function (err, resultConnection, fields){
-                    resultConnection.forEach(connection => {
-                        query = `SELECT * FROM Comments WHERE comment_id = ${connection.comment_id}`
-                        console.log(query)
-                        con.query(query, function (err, resultComment, fields){
-                            console.log(blog.idBlogs)
-                        })
-                    })
+                //ver xedavs response cvlilebas da solution??
+                // con.query(query, function (err, resultConnection, fields){
+                //     resultConnection.forEach(connection => {
+                //         query = `SELECT * FROM Comments WHERE comment_id = ${connection.comment_id}`
+                        
+
+                //         con.query(query, function (err, resultComment, fields){
+                //             result[blog.idBlogs].push(resultComment)
+                //             console.log(result)
+
+                //         })
+                //     })
+
                 })
             })
+
             res.send({
                 "data": result,
                 "numberOfPages": num_pages
@@ -94,7 +100,11 @@ app.get("/api/blogs", function(req, res){
       });
 
 
+//requests ver ighebs why?? undefined
+app.post('/api/users', function(req, res){
+    console.log(req.body)
 })
+
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
