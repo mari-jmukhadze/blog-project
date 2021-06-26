@@ -18,6 +18,6 @@ btn.addEventListener('click', ev => {
           },
           method: "POST",
           body: JSON.stringify(data),
-          mode: 'no-cors'
+          
     })
 })

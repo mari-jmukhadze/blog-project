@@ -16,6 +16,15 @@ const mysql = require('mysql');
       app.use(bodyParser.json());
       var jsonParser = bodyParser.json();
 
+
+      app.use(function (req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
+        res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+        next();
+    });
+    
+
 con.connect()
 app.get('/api/users', function(req, res) {
     const user_id = req.query.id;
@@ -104,22 +113,16 @@ app.get("/api/blogs", function(req, res){
 
 //requests ver ighebs why?? undefined
 app.post('/api/users', jsonParser, function(req, res){
-    console.log(req)
+    console.log(req.body)
     res.setHeader('Content-Type', 'application/json')
 
     res.send(JSON.stringify({key:"value"}));
 })
 
 
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
-    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-    next();
-});
-
 app.listen(3000, () => {
  console.log("Server running on port 3000");
  
 });
+
 
