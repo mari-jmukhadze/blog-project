@@ -2,12 +2,41 @@
   height: 200px;
 }
 
-.nav {
-  height: 100%;
-  width: 100%;
+a {
+  text-decoration: none;
+  color: #ffa1a1;
+}
+
+.navig {
+  background-color: #fff5f2;
+}
+
+.navig a {
+  text-decoration: none;
+  color: #ffa1a1;
+  font-style: 18px;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
 }
 
 .blogcont {
-  height: 400px;
+  height: auto;
+}
+
+.mystyle {
+  width: 90%;
+  color: #ffa1a1;
+  margin: 0 auto;
+  font-size: 20px;
+  font-family: 'Benne', serif;
+}
+
+.blogstyle {
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.stylediv {
+  background-color: #fff5f2;
 }
 /*# sourceMappingURL=style.css.map */

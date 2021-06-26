@@ -1,13 +1,45 @@
+// @import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
+$bgcolor: #fff5f2;
+$fontcolor: #ffa1a1;
+$txtfont: 'Open Sans', sans-serif;
+
 .head {
     height: 200px;  
 }
 
-.nav {
-    // border: 1px solid brown;
-    height: 100%;
-    width: 100%;
+a {
+    text-decoration: none;
+    color: $fontcolor;
+}
+
+.navig {
+    background-color: $bgcolor;
+    a{
+        text-decoration: none;
+        color: $fontcolor;
+        font-style: 18px;
+        font-weight: bold;
+        font-family: $txtfont;
+    }
 }
 
 .blogcont {
-    height: 400px;
+    height: auto;
+}
+
+.mystyle {
+    width: 90%;
+    color: $fontcolor;
+    margin: 0 auto;
+    font-size: 20px;
+    font-family: 'Benne', serif;
+}
+
+.blogstyle {
+    font-size: 18px;
+    font-family: $txtfont;
+}
+
+.stylediv {
+    background-color:$bgcolor;
 }
