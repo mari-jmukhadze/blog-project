@@ -8,6 +8,13 @@ const mysql = require('mysql');
         password: "Ac!12bDDt4",
         database: "blog"
       });
+      var bodyParser = require('body-parser') 
+
+      app.use(bodyParser.urlencoded({
+        extended: true
+      }));
+      app.use(bodyParser.json());
+      var jsonParser = bodyParser.json();
 
 con.connect()
 app.get('/api/users', function(req, res) {
@@ -92,17 +99,15 @@ app.get("/api/blogs", function(req, res){
           });
         });
 
-
-
-        // res.send({
-        //       "data": data
-        // });
       });
 
 
 //requests ver ighebs why?? undefined
-app.post('/api/users', function(req, res){
-    console.log(req.body)
+app.post('/api/users', jsonParser, function(req, res){
+    console.log(req)
+    res.setHeader('Content-Type', 'application/json')
+
+    res.send(JSON.stringify({key:"value"}));
 })
 
 
